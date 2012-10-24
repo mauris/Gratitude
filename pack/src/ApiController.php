@@ -11,17 +11,17 @@ class ApiController extends Controller {
         
         $url = 'https://graph.facebook.com/300328703413848/likes';
         $data = true;
-        //$result = array();
-        $fh = fopen('likes.json', 'w');
+        $result = array();
+        //$fh = fopen('likes.json', 'w');
         while($url){
             $data = file_get_contents($url);
             if($data){
                 $data = json_decode($data, true);
                 if(isset($data['data'])){
-                    foreach($data['data'] as $like){
-                        fwrite($fh, $like['id'] . ' ' . $like['name'] . "\n");
-                    }
-                    //$result = array_merge($result, $data['data']);
+                    //foreach($data['data'] as $like){
+                    //    fwrite($fh, $like['id'] . ' ' . $like['name'] . "\n");
+                    //}
+                    $result = array_merge($result, $data['data']);
                 }
                 if(isset($data['paging']['next'])){
                     $url = $data['paging']['next'];
@@ -30,8 +30,8 @@ class ApiController extends Controller {
                 }
             }
         }
-        fclose($fh);
-        //file_put_contents('likes.json', json_encode($result));
+        //fclose($fh);
+        file_put_contents('likes.json', json_encode($result));
     }
     
 }
