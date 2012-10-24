@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <style type="text/css">
+            .tiles{
+                width: 50px;
+                height:50px;
+                float:left;
+            }
+            #gallery{
+                background: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div class="span12">
+                <h1>Thank you for your votes.</h1>
+                </div>
+            </div>
+        </header>
+        <div id="gallery">
+        {{#profiles}}
+        <img  data-content="{{name}}" data-trigger="hover" src="https://graph.facebook.com/{{id}}/picture" alt="{{name}}" class="tiles"></a>
+        {{/profiles}}
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
+        <script>
+            (function($){
+                $(".tiles").popover();
+            })(jQuery);
+        </script>
+    </body>
+</html>
