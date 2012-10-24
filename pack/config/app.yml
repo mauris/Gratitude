@@ -10,9 +10,9 @@
 ---
 
 app:
-  name: "Welcome to Packfire Framework"
+  name: "Gratitude"
   version: "1.0"
-  rootUrl: "http://localhost/packfire"
+  rootUrl: "http://op.sg/gratitude"
   debug: false
 
 security:
