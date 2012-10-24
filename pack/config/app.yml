@@ -21,7 +21,7 @@ security:
   identity: null
   
 session:
-  enabled: true
+  enabled: false
   name: packfire
   lifetime: 3600
   http: true
