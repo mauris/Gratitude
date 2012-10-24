@@ -50,12 +50,12 @@
                 </div>
             </header>
             <div class="row">
-                <div class="span6">
+                <div class="span4">
                     <p>
                         Your vote means a lot to me in this final judging as it makes up 20% of the judging for the IT Youth Award 2013. The award means greatly to me so do help me by liking the photo of me linked at the "Vote" button.
                     </p>
                 </div>
-                <div class="span6">
+                <div class="span8">
                     <div>
                         <p>
                         Countdown to voting close on 28 October 2012
@@ -82,7 +82,7 @@
                     </p>
                     <div id="gallery">
                         {{^profiles}}
-                            Data is generating. Please wait...
+                        Data is generating. Please wait...
                         {{/profiles}}
                         {{#profiles}}
                         <img data-title="{{name}}" data-trigger="hover" src="https://graph.facebook.com/{{id}}/picture" alt="{{name}}" class="tiles"></a>
@@ -132,7 +132,7 @@
                 });
                 
                 $(function(){
-                    $.get('build');
+                    $.get('build'{{^profiles}}, function(){location.reload();}{{/profiles}});
                 });
             })(jQuery);
         </script>
