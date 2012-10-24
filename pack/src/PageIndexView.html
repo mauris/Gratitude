@@ -25,8 +25,7 @@
                 float:left;
             }
             #gallery{
-                background: #000;
-                padding:20px 0;
+                padding:10px 0 30px;
             }
             .cntSeparator {
                 line-height:100%;
@@ -67,10 +66,20 @@
             </div>
             <div class="row">
                 <div class="span12">
+                    <div style="margin-top:20px">
+                        <div class="alert alert-success">
+                          
+                            <i class="icon-fire"></i> This wall of profile pictures is built from all the likes gathered from <a href="http://j.mp/vote-sam" target="_blank">the voting photo</a> through
+                                <a href="https://developers.facebook.com/docs/reference/api/" target="_blank">Facebook Graph API</a> and the user interface is impowered by <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter Bootstrap</a>.
+                                View the source code for <a href="https://github.com/thephpdeveloper/Gratitude" target="_blank">this website on Github</a>.
+                      
+                        </div>
+                    </p>
                     <div id="gallery">
                         {{#profiles}}
                         <img  data-title="{{name}}" data-trigger="hover" src="https://graph.facebook.com/{{id}}/picture" alt="{{name}}" class="tiles"></a>
                         {{/profiles}}
+                        <div style="clear:both"></div>
                     </div>
                 </div>
             </div>
