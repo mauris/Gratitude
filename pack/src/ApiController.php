@@ -35,7 +35,7 @@ class ApiController extends Controller {
             }
             //fclose($fh);
             //file_put_contents('likes.json', json_encode($result));
-            $cache->set('likes.json', json_encode($result), 3600);
+            $cache->set('likes.json', json_encode($result), 1800);
         }
     }
     

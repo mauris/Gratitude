@@ -81,8 +81,11 @@
                         </div>
                     </p>
                     <div id="gallery">
+                        {{^profiles}}
+                            Data is generating. Please wait...
+                        {{/profiles}}
                         {{#profiles}}
-                        <img  data-title="{{name}}" data-trigger="hover" src="https://graph.facebook.com/{{id}}/picture" alt="{{name}}" class="tiles"></a>
+                        <img data-title="{{name}}" data-trigger="hover" src="https://graph.facebook.com/{{id}}/picture" alt="{{name}}" class="tiles"></a>
                         {{/profiles}}
                         <div style="clear:both"></div>
                     </div>
