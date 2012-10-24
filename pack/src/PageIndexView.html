@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Vote for Sam - Singapore Computer Society IT Youth Award 2013</title>
         <meta charset="utf-8">
+        <title>Vote for Sam - Singapore Computer Society IT Youth Award 2013</title>
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
         <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <meta name="twitter:site" content="_mauris" />
+        
+        <link rel="canonical" href="http://op.sg/gratitude/" />
+        <!-- open graph -->
+        <meta property="og:url" content="http://op.sg/gratitude/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Vote for Sam - Singapore Computer Society IT Youth Award 2013">
+        <meta property="og:image" content="http://i.imgur.com/h8663.jpg">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1349">
+        <meta property="og:image:height" content="653">
+        <meta property="og:description" content="Thank you everyone for your votes for Sam Yong in the Singapore Computer Society IT Youth Award 2013">
+        <!-- open graph -->
         <style type="text/css">
             .tiles{
                 width: 50px;
@@ -12,7 +26,7 @@
             }
             #gallery{
                 background: #000;
-                margin-top:20px;
+                padding:20px 0;
             }
             .cntSeparator {
                 line-height:100%;
@@ -67,7 +81,7 @@
         <script>
             (function($){
                 
-                $(".tiles").popover({content: "Thank you (:"});
+                $(".tiles").popover({content: "Thank you very much :D - Sam"});
                 
                 var getRemainder = function(){
                     var now = Math.round(+new Date()/1000);
