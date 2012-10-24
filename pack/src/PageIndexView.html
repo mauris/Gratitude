@@ -36,6 +36,11 @@
             #votebar{
                 margin-top:20px;
             }
+            #counter{
+                height:77px;
+                width:550px;
+                overflow:hidden;
+            }
         </style>
     </head>
     <body>
@@ -65,7 +70,7 @@
                 </div>
                 <div class="span6">
                     <div id="votebar" class="input-prepend">
-                        <span class="add-on"><i class="icon-thumbs-up"></i> {{counts}}</span><a class="btn btn-primary" target="blank" href="http://j.mp/vote-sam">Vote</a>
+                        <span class="add-on"><i class="icon-thumbs-up"></i> {{counts}}</span><a class="btn btn-primary" target="blank" href="http://j.mp/vote-sam">Vote now!</a>
                     </div>
                 </div>
             </div>
@@ -98,7 +103,7 @@
         <script>
             (function($){
                 
-                $(".tiles").popover({content: "Thank you very much :D - Sam"});
+                $(".tiles").popover({placement: "top", content: "Thank you very much :D - Sam"});
                 
                 var getRemainder = function(){
                     var now = Math.round(+new Date()/1000);
@@ -113,7 +118,6 @@
                     diff -= minutes * 60;
                     var seconds = diff;
                     
-                    if (days    < 10) {days    = "0" + days;}
                     if (hours   < 10) {hours   = "0" + hours;}
                     if (minutes < 10) {minutes = "0" + minutes;}
                     if (seconds < 10) {seconds = "0" + seconds;}
@@ -123,7 +127,7 @@
                 
                 $('#counter').countdown({
                     stepTime: 60,
-                    format: 'dd:hh:mm:ss',
+                    format: 'd.hh:mm:ss',
                     startTime: getRemainder(),
                     digitImages: 6,
                     digitWidth: 53,
