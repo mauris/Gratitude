@@ -37,8 +37,11 @@
                 margin-top:20px;
             }
             #counter{
+                overflow:auto;
+            }
+            #counter-wrap{
                 height:77px;
-                width:550px;
+                width:480px;
                 overflow:hidden;
             }
         </style>
@@ -55,37 +58,42 @@
                 </div>
             </header>
             <div class="row">
-                <div class="span4">
+                <div class="span6">
                     <p>
                         Your vote means a lot to me in this final judging as it makes up 20% of the judging for the IT Youth Award 2013. The award means greatly to me so do help me by liking the photo of me linked at the "Vote" button.
                     </p>
+                    <p>
+                        And because your vote is precious to me, I am dedicating this page until the end of the interviews to thank all those mentioned below. Thank you <i class="icon-heart"></i>
+                    </p>
                 </div>
-                <div class="span8">
+                <div class="span6" style="padding: 0 0 40px">
                     <div>
                         <p>
                         Countdown to voting close on 28 October 2012
                         </p>
                     </div>
-                    <div id="counter"></div>
+                    <div id="counter-wrap"><div id="counter"></div></div>
                 </div>
                 <div class="span6">
                     <div id="votebar" class="input-prepend">
                         <span class="add-on"><i class="icon-thumbs-up"></i> {{counts}}</span><a class="btn btn-primary" target="blank" href="http://j.mp/vote-sam">Vote now!</a>
-                        <p style="font-size:75%">Don't worry, this Vote button links to the picture to vote on Facebook (:</p>
                     </div>
+                    <p style="font-size:75%">Don't worry, this Vote button links to the picture to vote on Facebook (:</p>
                 </div>
-            </div>
-            <div class="row">
+            <!--</div>
+            <div class="row">-->
                 <div class="span12">
                     <div style="margin-top:20px">
-                        <div class="alert alert-success" style="font-size:80%">
+                        <div class="alert alert-success" style="font-size:70%">
                           
                             <i class="icon-fire"></i> This wall of profile pictures is built from all the likes gathered from <a href="http://j.mp/vote-sam" target="_blank">the voting photo</a> through
                                 <a href="https://developers.facebook.com/docs/reference/api/" target="_blank">Facebook Graph API</a> and the user interface is empowered by <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter Bootstrap</a>.
                                 View the source code for <a href="https://github.com/thephpdeveloper/Gratitude" target="_blank">this website on Github</a> fueled by <a href="http://mauris.sg/packfire" target="_blank">Packfire Framework for PHP</a>. The likes count and profile pictures list on this page are cached and may not reflect your recent likes immediately. All data found here are fetched from Facebook and this website does not store anything at all. 
                       
                         </div>
-                    </p>
+                    </div>
+                </div>
+                <div class="span12">
                     <div id="gallery">
                         {{^profiles}}
                         Data is generating. Please wait...
@@ -137,7 +145,7 @@
                 });
                 
                 $(function(){
-                    $.get('build'{{^profiles}}, function(){location.reload();}{{/profiles}});
+                    $.get('build'{{^profiles}}, function(){window.setTimeout(function(){location.reload();},600000);}{{/profiles}});
                 });
             })(jQuery);
         </script>
