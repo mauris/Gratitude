@@ -38,10 +38,10 @@
             }
             #counter{
                 overflow:auto;
+                width:480px;
             }
             #counter-wrap{
                 height:77px;
-                width:480px;
                 overflow:hidden;
             }
         </style>
@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="span12">
                         <div class="page-header">
-                            <h1>Thank you for your votes <small><br>for Sam Yong in the Singapore Computer Society <b>IT Youth Award 2013</b> finals</small></h1>
+                            <h1>Thank you for your votes <small><br>for <i>Sam Yong Shan Xian</i> in the Singapore Computer Society <b>IT Youth Award 2013</b> finals</small></h1>
                         </div>
                     </div>
                 </div>
@@ -116,15 +116,15 @@
                 
                 var getRemainder = function(){
                     var now = Math.round(+new Date()/1000);
-                    var deadline = Math.round(+new Date(2012, 9, 28)/1000);
+                    var deadline = Math.round(+new Date(2012, 9, 29, 0, 0, 0)/1000);
                     var diff = deadline - now;
                     
                     var days    = Math.floor(diff / 86400);
-                    diff -= days * 86400;
+                    diff %= 86400;
                     var hours   = Math.floor(diff / 3600);
-                    diff -= hours * 3600;
+                    diff %= 3600;
                     var minutes = Math.floor(diff / 60);
-                    diff -= minutes * 60;
+                    diff %= 60;
                     var seconds = diff;
                     
                     if (hours   < 10) {hours   = "0" + hours;}
@@ -145,7 +145,7 @@
                 });
                 
                 $(function(){
-                    $.get('build'{{^profiles}}, function(){window.setTimeout(function(){location.reload();},600000);}{{/profiles}});
+                    $.get('build'{{^profiles}}, function(){window.setTimeout(function(){location.reload();},300000);}{{/profiles}});
                 });
             })(jQuery);
         </script>
