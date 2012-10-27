@@ -7,7 +7,7 @@ class ApiController extends Controller {
     public function build(){
         $cache = $this->service('cache');
         /* @var $cache \Packfire\Cache\ICache */
-        if(!$cache->get('build.lock') && !$cache->check('likes.json')){
+        if(!$cache->check('build.lock') && !$cache->check('likes.json')){
             $cache->set('build.lock', true);
             // https://graph.facebook.com/300328703413848/likes
             ignore_user_abort(true);
