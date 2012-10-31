@@ -66,7 +66,7 @@
                         And because your vote is precious to me, I am dedicating this page until the end of the interviews to thank all those mentioned below. Thank you <i class="icon-heart"></i>
                     </p>
                 </div>
-                <div class="span6" style="padding: 0 0 40px">
+                <div class="span6" style="padding: 0 0 40px" id="counterbox">
                     <div>
                         <p>
                         Countdown to voting close on 28 October 2012
@@ -114,11 +114,7 @@
                 
                 $(".tiles").popover({placement: "top", content: "Thank you very much :D - Sam"});
                 
-                var getRemainder = function(){
-                    var now = Math.round(+new Date()/1000);
-                    var deadline = Math.round(+new Date(2012, 9, 29, 0, 0, 0)/1000);
-                    var diff = deadline - now;
-                    
+                var getRemainder = function(diff){
                     var days    = Math.floor(diff / 86400);
                     diff %= 86400;
                     var hours   = Math.floor(diff / 3600);
@@ -134,15 +130,22 @@
                     return time;
                 }
                 
-                $('#counter').countdown({
-                    stepTime: 60,
-                    format: 'd.hh:mm:ss',
-                    startTime: getRemainder(),
-                    digitImages: 6,
-                    digitWidth: 53,
-                    digitHeight: 77,
-                    image: "assets/images/digits.png"
-                });
+                var now = Math.round(+new Date()/1000);
+                var deadline = Math.round(+new Date(2012, 9, 29, 0, 0, 0)/1000);
+                var diff = deadline - now;
+                if(diff > 0){
+                    $('#counter').countdown({
+                        stepTime: 60,
+                        format: 'd.hh:mm:ss',
+                        startTime: getRemainder(diff),
+                        digitImages: 6,
+                        digitWidth: 53,
+                        digitHeight: 77,
+                        image: "assets/images/digits.png"
+                    });
+                }else{
+                    $('#counterbox').html('<h2>The voting has closed. Thank you everyone for supporting me. </h2>');
+                }
                 
                 $(function(){
                     $.get('build'{{^profiles}}, function(){window.setTimeout(function(){location.reload();},300000);}{{/profiles}});
